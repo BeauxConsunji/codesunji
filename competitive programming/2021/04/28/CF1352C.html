@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CF1352 C - K-th Not Divisible by n</title>
+    <link rel="icon" href="/assets/images/logo.png" type="image/png" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/master.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </head>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+  <a class="navbar-brand" href="/">codesunji</a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" style="color: #fff">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav ml-auto">
+      
+      <li class="nav-item"><a class="nav-link " href="/" >Home</a></li>
+      
+      <li class="nav-item"><a class="nav-link " href="/projects/" >Projects</a></li>
+      
+      <li class="nav-item"><a class="nav-link " href="/posts/" >Posts</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid mt-5">
+  <div class="row p-5">
+  <div class="col-12 col-lg-10 p-5 bg-white mx-auto" style="max-width: 925px">
+    <h1> CF1352 C - K-th Not Divisible by n</h1>
+    
+    <blockquote>
+  <p>This problem is from <a href="https://codeforces.com/problemset/problem/1352/C">Codeforces Round #640 (Div. 4) Problem C</a></p>
+</blockquote>
+
+<h3 id="problem">Problem</h3>
+<p>You are given two positive integers \(n\) and \(k\). Print the \(k\)-th positive integer that is not divisible by \(n\).</p>
+
+<p>For example, if \(n=3\), and \(k=7\), then all numbers that are not divisible by \(3\) are: \(1, 2, 4, 5, 7, 8, 10, 11, 13...\). The \(7\)-th number among them is \(10\).</p>
+
+<h4 id="input">Input</h4>
+<p>The first line contains an integer \(t\) \((1 \leq t \leq 1000)\) – the number of test cases in the input. Next, \(t\) test cases are given, one per line.</p>
+
+<p>Each test case is two positive integers \(n\) \((2 \leq n \leq 10^9)\) and \(k\) \((1 \leq k \leq 10^9)\).</p>
+
+<h4 id="output">Output</h4>
+<p>For each test case print the \(k\)-th positive integer that is not divisible by \(n\).</p>
+
+<h4 id="example">Example</h4>
+<h5 id="input-1">Input</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6
+3 7
+4 12
+2 1000000000
+7 97
+1000000000 1000000000
+2 1
+</code></pre></div></div>
+
+<h5 id="output-1">Output</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
+15
+1999999999
+113
+1000000001
+1
+</code></pre></div></div>
+<p> 
+ 
+ </p>
+<h3 id="solution">Solution</h3>
+<p>A naive approach would be to loop through each positive integer and check whether each is divisible by \(n\) until the \(k\)-th positive integer which is not divisible by \(n\) is found. This is no good because there is up to \(1000\) test cases and for each one we could be checking around \(10^9\) positive integers which means that this solution is too inefficient and the program will exceed the time limit for this problem.</p>
+
+<h4 id="idea">Idea</h4>
+<p>What if there was a way to calculate the \(k\)-th positive integer that is not divisible by \(n\) directly without having to loop through each positive integer that comes before it to find it?</p>
+
+<p>Let’s first try to work it out with a simple example, such as when \(n = 3\) and \(k = 7\). To recap, this means that we are trying to find the \(7\)-th number that is not divisible by \(3\).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p> </p>
+
+<p>If we had a list of all the positive integers that are not divisible by \(3\), each number’s position on the list would be equal to its value minus the number of multiples of \(3\) that came before it. For example, \(10\) is in the \(7\)-th position because there are \(3\) multiples of \(3\) before \(10\) i.e. \(3, 6, 9\) and \(7 = 10 - 3\).</p>
+
+<p> </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th> </th>
+      <th>3</th>
+      <th>4</th>
+      <th> </th>
+      <th>5</th>
+      <th>6</th>
+      <th> </th>
+      <th>7</th>
+      <th>8</th>
+      <th> </th>
+      <th>9</th>
+      <th>10</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p> </p>
+
+<p>Therefore, to find the \(k\)-th positive integer that is not divisible by \(n\), simply add the number of multiples of \(n\) before the \(k\)-th term together with \(k\) i.e. \(3 + 7 = 10\). Next, we have to work out a method to find the number of multiples of \(n\) before the \(k\)-th term.</p>
+
+<p>I noticed that I can do this by dividing \(k-1\) by \(n - 1\). For instance when \(n = 3\) and \(k = 7\), \((7-1)/(3-1) = 6/2 = 3\) and there are \(3\) multiples of \(3\) before the \(7\)-th term which is \(10\).</p>
+
+<h4 id="my-code">My Code</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">t</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
+		<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// number of multiples of n before the k-th term</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="n">x</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+    <br>
+    <blockquote>
+  <p>If you have any corrections, suggestions, or feedback, please feel free to email them to <a href="mailto:beaux@codesunji.com">beaux@codesunji.com</a>. I’d love to hear back from you and improve this site in any way I can :]</p>
+</blockquote>
+
+  </div>
+  <div class="col-12 col-lg-2 p-5 mx-auto">
+  </div>
+</div>
+
+</div>
+<footer>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col-md-6">
+        <ul>
+          <li><h3>codesunji</h3></li>
+          <li>© 2021 Beaux Consunji</li>
+          <li>tech, thoughts, and other things</li>
+      </div>
+      <div class="col-md-3">
+        <ul>
+          <li><strong>LINKS</strong></li>
+          <li><a href="mailto:beaux@codesunji.com">Contact Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#writeups">Write-ups</a></li>
+      </div>
+      <div class="col-md-3">
+        <ul>
+          <li><strong>SOCIAL</strong></li>
+          <li><a href="mailto:beaux@codesunji.com" target="_blank">Email</a></li>
+          <li><a href="https://github.com/BeauxConsunji" target="_blank">Github</a></li>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
