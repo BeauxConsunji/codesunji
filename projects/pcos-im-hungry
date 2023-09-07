@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hidden Academia</title>
+    <title>PCOS I'm Hungry</title>
     <link rel="icon" href="/assets/images/logo.png" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -38,68 +38,16 @@
 <div class="container-fluid mt-5">
   <div class="row p-5">
   <div class="col-12 col-lg-10 p-5 bg-white mx-auto" style="max-width: 925px">
-    <h1> Hidden Academia</h1>
+    <h1> PCOS I'm Hungry</h1>
     
-      <hr class="divider-solid">
-      <img style="padding-bottom: 15px;" src="/assets/images/projects/hidden_academia/logo.png" ></img>
-      <hr class="divider-solid">
-    
-    <blockquote>
-  <p>This project has been entered for the <a href="https://imaginecup.microsoft.com/en-us/junior">Microsoft Imagine Cup Jr. 2020</a> under the AI for Cultural Heritage category.</p>
-</blockquote>
+    ### Description
+A simple game I made together with my friend, Mishaal Butt, for girls.exe's Hack the Gap hackathon in 2021 which teaches the user about the dietary recommendations for women with polycystic ovary syndrome (PCOS).
 
-<h3 id="problem">Problem</h3>
-<p>Adolescence is a time of discovering your identity where gender and race play a huge role, so what happens when minority students cannot find themselves in the ever-evolving book we call history? Textbooks define what is considered significant in history, so through the exclusion of minorities a dangerous message is sent: you are not important enough. According to Taylor Giarrizo, this can result in “the student’s skewed perceptions of minorities [which] can create disconnected and ignorant inter-group relationships. Barriers are formed and tensions are created as a partial result of what is being taught through textbooks”.</p>
-
-<h3 id="description">Description</h3>
-<p>A cross-platform app which allows the user to scan the faces of historical figures in their textbooks and suggests alternative historical figures who have also contributed significantly to a similar field. However, the individual provided will be a person whose achievements may have been hidden away because they happen to be a member of a minority group.</p>
-
-<h3 id="role">Role</h3>
-<p>This project wouldn’t be possible without my teammates Divya Malhotra, Farah Malaika, and Syazmin Syahwira. My role revolved around programming and developing the app prototype in Xamarin.</p>
-
-<h3 id="skills">Skills</h3>
-<ul>
-  <li>C#</li>
-  <li>Xamarin.Forms</li>
-  <li>Web scraping</li>
-  <li>Microsoft Computer and Custom Vision</li>
-  <li>Machine Learning</li>
-  <li>Collaboration</li>
-</ul>
-
-<div id="photo-carousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    
-    
-    <div class="carousel-item  active  ">
-      <img class="d-block w-100" src="/assets/images/projects/hidden_academia/1.png" />
-    </div>
-    
-    <div class="carousel-item ">
-      <img class="d-block w-100" src="/assets/images/projects/hidden_academia/2.png" />
-    </div>
-    
-    <div class="carousel-item ">
-      <img class="d-block w-100" src="/assets/images/projects/hidden_academia/3.png" />
-    </div>
-    
-    <div class="carousel-item ">
-      <img class="d-block w-100" src="/assets/images/projects/hidden_academia/4.png" />
-    </div>
-    
-  </div>
-  <div class="carousel-controls">
-    <a class="btn-floating" href="#photo-carousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="btn-floating" href="#photo-carousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
+### Skills
+- HTML
+- Javascript
+- P5.js
+- Matter.js
 
     <br>
     <blockquote>
